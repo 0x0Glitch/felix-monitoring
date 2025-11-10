@@ -1,0 +1,157 @@
+[
+  {
+    "t": 1762578972.391304,
+    "coin": "flxn:TSLA",
+    "best_bid": 431.4,
+    "best_ask": 432.07,
+    "mid": 431.735,
+    "spread": 0.6700000000000159,
+    "spread_bps": 15.518778880563676,
+    "depth": {
+      "bps5": {
+        "bid_base": 0,
+        "ask_base": 0,
+        "total_base": 0,
+        "bid_notional": 0,
+        "ask_notional": 0,
+        "total_notional": 0
+      },
+      "bps10": {
+        "bid_base": 169.81,
+        "ask_base": 164.03,
+        "total_base": 333.84000000000003,
+        "bid_notional": 73256.034,
+        "ask_notional": 70872.4421,
+        "total_notional": 144128.4761
+      },
+      "bps50": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      },
+      "bps100": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      }
+    }
+  },
+  {
+    "t": 1762578975.3957021,
+    "coin": "flxn:TSLA",
+    "best_bid": 431.4,
+    "best_ask": 432.07,
+    "mid": 431.735,
+    "spread": 0.6700000000000159,
+    "spread_bps": 15.518778880563676,
+    "depth": {
+      "bps5": {
+        "bid_base": 0,
+        "ask_base": 0,
+        "total_base": 0,
+        "bid_notional": 0,
+        "ask_notional": 0,
+        "total_notional": 0
+      },
+      "bps10": {
+        "bid_base": 169.81,
+        "ask_base": 164.03,
+        "total_base": 333.84000000000003,
+        "bid_notional": 73256.034,
+        "ask_notional": 70872.4421,
+        "total_notional": 144128.4761
+      },
+      "bps50": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      },
+      "bps100": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      }
+    }
+  },
+  {
+    "t": 1762578978.3974578,
+    "coin": "flxn:TSLA",
+    "best_bid": 431.4,
+    "best_ask": 432.07,
+    "mid": 431.735,
+    "spread": 0.6700000000000159,
+    "spread_bps": 15.518778880563676,
+    "depth": {
+      "bps5": {
+        "bid_base": 0,
+        "ask_base": 0,
+        "total_base": 0,
+        "bid_notional": 0,
+        "ask_notional": 0,
+        "total_notional": 0
+      },
+      "bps10": {
+        "bid_base": 169.81,
+        "ask_base": 164.03,
+        "total_base": 333.84000000000003,
+        "bid_notional": 73256.034,
+        "ask_notional": 70872.4421,
+        "total_notional": 144128.4761
+      },
+      "bps50": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      },
+      "bps100": {
+        "bid_base": 928.22,
+        "ask_base": 902.26,
+        "total_base": 1830.48,
+        "bid_notional": 399994.1019,
+        "ask_notional": 390231.5956,
+        "total_notional": 790225.6975
+      }
+    }
+  }
+,
+{"t":1762578981.401686,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578984.406723,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578987.4103942,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578990.415134,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578993.4200802,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578996.424779,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762578999.426966,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579002.43068,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579005.431468,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579008.435221,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579011.43645,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579014.436967,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+,
+{"t":1762579017.438844,"coin":"flxn:TSLA","best_bid":431.4,"best_ask":432.07,"mid":431.735,"spread":0.6700000000000159,"spread_bps":15.518778880563676,"depth":{"bps5":{"bid_base":0,"ask_base":0,"total_base":0,"bid_notional":0,"ask_notional":0,"total_notional":0},"bps10":{"bid_base":169.81,"ask_base":164.03,"total_base":333.84000000000003,"bid_notional":73256.034,"ask_notional":70872.4421,"total_notional":144128.4761},"bps50":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975},"bps100":{"bid_base":928.22,"ask_base":902.26,"total_base":1830.48,"bid_notional":399994.1019,"ask_notional":390231.5956,"total_notional":790225.6975}}}
+]

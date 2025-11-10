@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  market-monitor:
+    build: .
+    environment:
+      - SUPABASE_DSN=${SUPABASE_DSN}
+      - MARKETS=${MARKETS:-flxn:TSLA}
+      - HL_DEX=${HL_DEX}
+      - HL_TESTNET=${HL_TESTNET:-1}
+      - POLL_INTERVAL_SEC=${POLL_INTERVAL_SEC:-3}
+      - DB_SCHEMA=${DB_SCHEMA:-market_data}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    command: python main.py
+
+  user-monitor:
+    build: .
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - TARGET_MARKETS=${TARGET_MARKETS}
+      - CHAIN_TYPE=${CHAIN_TYPE:-Mainnet}
+      - SNAPSHOT_CHECK_INTERVAL=${SNAPSHOT_CHECK_INTERVAL:-60}
+      - POSITION_UPDATE_INTERVAL=${POSITION_UPDATE_INTERVAL:-10}
+      - POSITION_BATCH_SIZE=${POSITION_BATCH_SIZE:-100}
+      - MAX_WORKERS=${MAX_WORKERS:-10}
+      - API_TIMEOUT=${API_TIMEOUT:-10}
+      - DATA_DIR=/app/data
+    volumes:
+      - ./data:/app/data
+      - ~/hl/data/periodic_abci_states:/snapshots:ro
+      - ~/hl-node:/usr/local/bin/hl-node:ro
+    restart: unless-stopped
+    command: python -m user_monitoring.main
+
+networks:
+  default:
+    name: felix-network
