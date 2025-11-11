@@ -1,0 +1,27 @@
+[Unit]
+Description=Felix User Monitoring Service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=felix
+Group=felix
+WorkingDirectory=/opt/felix-exchange-monitoring
+Environment="PATH=/opt/felix-exchange-monitoring/.venv/bin"
+ExecStart=/opt/felix-exchange-monitoring/.venv/bin/python -m user_monitoring.main
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=felix-user-monitor
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Security
+PrivateTmp=yes
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
