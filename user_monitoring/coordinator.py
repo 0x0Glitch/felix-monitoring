@@ -160,11 +160,18 @@ class UserMonitor:
                         
                         active_positions = []
                         closed_addresses = []
+                        api_failed_addresses = []
                         
                         for address in batch:
-                            if address in positions and market in positions[address]:
+                            if address not in positions:
+                                # API call failed for this address - DO NOT remove
+                                api_failed_addresses.append(address)
+                                logger.debug(f"API failed for {address}, keeping in database")
+                            elif market in positions[address]:
+                                # API succeeded and user has position for this market
                                 active_positions.append(positions[address][market])
                             else:
+                                # API succeeded but user has no position for this market
                                 closed_addresses.append(address)
                                 
                         if active_positions:
@@ -172,15 +179,19 @@ class UserMonitor:
                             self.stats['positions_updated'] += len(active_positions)
                             
                         if closed_addresses:
+                            logger.info(f"{market}: Removing {len(closed_addresses)} addresses with confirmed zero positions")
                             await self.db.remove_addresses(market, closed_addresses)
                             async with self.address_lock:
                                 self.market_addresses[market] -= set(closed_addresses)
                             self.stats['addresses_removed'] += len(closed_addresses)
                             
+                        if api_failed_addresses:
+                            logger.warning(f"{market}: {len(api_failed_addresses)} addresses had API failures - NOT removing from database")
+                            
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                logger.error(f"Position update worker error: {e}")
+                logger.error(f"Position update worker error: {e}", exc_info=True)
                 await asyncio.sleep(10)
                 
     async def _websocket_worker(self):
@@ -200,12 +211,21 @@ class UserMonitor:
             
         if new_addresses:
             positions = await self._fetch_positions_for_addresses(list(new_addresses), [market])
+            
+            # Only add addresses where API call succeeded
+            successfully_fetched = set(positions.keys())
+            failed_addresses = new_addresses - successfully_fetched
+            
+            if failed_addresses:
+                logger.warning(f"{market}: API failed for {len(failed_addresses)} new addresses from WebSocket - skipping")
+            
             await self._save_positions(market, positions)
             
+            # Only add successfully fetched addresses to tracking
             async with self.address_lock:
-                self.market_addresses[market] |= new_addresses
+                self.market_addresses[market] |= successfully_fetched
                 
-            self.stats['addresses_added'] += len(new_addresses)
+            self.stats['addresses_added'] += len(successfully_fetched)
             
     async def _fetch_positions_for_addresses(
         self, 
@@ -216,16 +236,24 @@ class UserMonitor:
         
     async def _save_positions(self, market: str, positions_by_address: Dict[str, Dict[str, Any]]):
         positions = []
+        addresses_with_no_positions = []
         
         for address, market_positions in positions_by_address.items():
             if market in market_positions:
                 positions.append(market_positions[market])
+            else:
+                # API succeeded but no position for this market
+                addresses_with_no_positions.append(address)
         
         if positions:
             await self.db.upsert_positions(market, positions)
-            logger.info(f"{market}: Saved {len(positions)} positions to database")
-        else:
-            logger.debug(f"{market}: No positions to save (queried {len(positions_by_address)} addresses)")
+            logger.info(f"{market}: Saved {len(positions)} active positions to database")
+        
+        if addresses_with_no_positions:
+            logger.debug(f"{market}: {len(addresses_with_no_positions)} addresses have no positions (API confirmed)")
+        
+        if not positions and not addresses_with_no_positions:
+            logger.debug(f"{market}: No successful API responses to process")
             
     async def _stats_reporter(self):
         while self.running:

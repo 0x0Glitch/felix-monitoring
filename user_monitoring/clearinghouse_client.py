@@ -158,7 +158,7 @@ class ClearinghouseClient:
                     timeout=aiohttp.ClientTimeout(total=5)
                 ) as response:
                     if response.status == 200:
-                        logger.info("✅ Local node has recovered, switching back from public API fallback")
+                        logger.info("Local node has recovered, switching back from public API fallback")
                         self._use_public_api_fallback = False
                         self._local_node_failures = 0
                     else:
@@ -183,20 +183,32 @@ class ClearinghouseClient:
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
         positions = {}
+        failed_addresses = []
         total_positions = 0
         for address, result in zip(addresses, results):
-            if isinstance(result, dict):
+            if result is None:
+                # API call failed for this address - do not include in results
+                failed_addresses.append(address)
+            elif isinstance(result, dict):
+                # API call succeeded - include even if empty (no positions)
                 positions[address] = result
                 total_positions += len(result)
+            elif isinstance(result, Exception):
+                # Exception occurred during processing
+                logger.error(f"Exception processing {address}: {result}")
+                failed_addresses.append(address)
         
-        logger.info(f"Processed {len(addresses)} addresses: {len(positions)} with positions, {total_positions} total positions found")
+        if failed_addresses:
+            logger.warning(f"⚠️ API failed for {len(failed_addresses)} addresses - these will NOT be removed: {failed_addresses[:5]}{'...' if len(failed_addresses) > 5 else ''}")
+        
+        logger.info(f"Processed {len(addresses)} addresses: {len(positions)} successful API calls, {len(failed_addresses)} API failures, {total_positions} total positions found")
         return positions
         
     async def _process_single_address(
         self, 
         address: str, 
         target_markets: List[str]
-    ) -> Dict[str, Any]:
+    ) -> Optional[Dict[str, Any]]:
         # Extract DEX name for custom markets
         dex_name = None
         for market in target_markets:
@@ -207,12 +219,19 @@ class ClearinghouseClient:
         
         state = await self.fetch_clearinghouse_state(address, dex_name)
         if not state:
-            return {}
+            # API call failed - return None to indicate failure
+            # This is different from successful API call with no positions
+            logger.warning(f"API call failed for address {address} - will NOT remove from database")
+            return None
             
         positions = {}
         
+        # API call succeeded - check if user has positions
         asset_positions = state.get('assetPositions', [])
-        logger.debug(f"Address {address}: Found {len(asset_positions)} asset positions (dex={dex_name})")
+        logger.debug(f"Address {address}: API success - Found {len(asset_positions)} total positions across all markets")
+        
+        # Track positions in other markets for logging
+        other_market_positions = []
         
         for asset_pos in asset_positions:
             position = asset_pos.get('position', {})
@@ -238,7 +257,8 @@ class ClearinghouseClient:
             
             # Skip if not in target markets
             if not market_match:
-                logger.debug(f"Address {address}: Skipping coin '{coin_raw}' (not in targets)")
+                other_market_positions.append(coin_raw)
+                logger.debug(f"Address {address}: Found position in '{coin_raw}' but not monitoring this market")
                 continue
             
             coin = market_match  # Use the matched target market name
@@ -276,5 +296,18 @@ class ClearinghouseClient:
                 'withdrawable': safe_float(state.get('withdrawable', '0'))
             }
             logger.debug(f"✓ Address {address}: Added position for {coin} (size={szi}, value=${position_value})")
-            
+        
+        # Return positions dict (empty dict {} means successful API call with no positions in target markets)
+        # This is different from None which means API failure
+        if not positions:
+            if other_market_positions:
+                logger.info(f"Address {address}: Has positions in OTHER markets {other_market_positions} but NOT in target markets {target_markets} - will be removed from monitoring")
+            elif asset_positions:
+                logger.debug(f"Address {address}: Has {len(asset_positions)} positions but none match target markets {target_markets}")
+            else:
+                logger.debug(f"Address {address}: No positions at all (empty assetPositions array)")
+        else:
+            if other_market_positions:
+                logger.debug(f"Address {address}: Monitoring {len(positions)} positions, ignoring {len(other_market_positions)} positions in other markets: {other_market_positions}")
+        
         return positions

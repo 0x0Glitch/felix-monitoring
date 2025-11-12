@@ -1,0 +1,29 @@
+{
+  "25fbd1592a0f8811": {
+    "path": "/home/ubuntu/hl/data/periodic_abci_states/20251111/793390000.rmp",
+    "height": 793390000,
+    "date": "20251111",
+    "size": 877348555,
+    "hash": "25fbd1592a0f8811",
+    "processed_at": "2025-11-11T18:39:19.117453",
+    "status": "success"
+  },
+  "a71b120f6fb78baa": {
+    "path": "/home/ubuntu/hl/data/periodic_abci_states/20251111/793250000.rmp",
+    "height": 793250000,
+    "date": "20251111",
+    "size": 875747640,
+    "hash": "a71b120f6fb78baa",
+    "processed_at": "2025-11-11T15:29:19.322778",
+    "status": "success"
+  },
+  "2b9c149b224a5e34": {
+    "path": "/home/ubuntu/hl/data/periodic_abci_states/20251111/793140000.rmp",
+    "height": 793140000,
+    "date": "20251111",
+    "size": 875779523,
+    "hash": "2b9c149b224a5e34",
+    "processed_at": "2025-11-11T12:55:04.715716",
+    "status": "success"
+  }
+}
